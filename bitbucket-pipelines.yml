@@ -1,0 +1,27 @@
+image: copecgid/lambda_installer:2.0.0
+
+pipelines:
+  custom:
+    BUILD DE:
+      - variables:
+          - name: TOKEN
+      - step:
+          name: BUILD DE
+          script:
+            - . /build_de.sh
+
+    BUILD QA:
+      - variables:
+          - name: TOKEN
+      - step:
+          name: BUILD QA
+          script:
+            - . /build_qa.sh
+
+    BUILD PR:
+      - variables:
+          - name: TOKEN
+      - step:
+          name: BUILD PR
+          script:
+            - . /build_pr.sh
